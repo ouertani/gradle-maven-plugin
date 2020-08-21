@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>codes.rafael.gradlemavenplugin</groupId>
+    <groupId>codes.ouertani.gradlemavenplugin</groupId>
     <artifactId>gradle-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
-    <version>1.0.12-SNAPSHOT</version>
+    <version>1.0.12</version>
     <name>gradle-maven-plugin Maven Mojo</name>
-    <url>https://github.com/LendingClub/gradle-maven-plugin</url>
+    <url>https://github.com/ouertani/gradle-maven-plugin</url>
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
@@ -20,9 +20,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@github.com:raphw/gradle-maven-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:raphw/gradle-maven-plugin.git</developerConnection>
-        <url>git@github.com:raphw/gradle-maven-plugin.git</url>
+        <connection>scm:git:git@github.com:ouertani/gradle-maven-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:ouertani/gradle-maven-plugin.git</developerConnection>
+        <url>git@github.com:ouertani/gradle-maven-plugin.git</url>
     </scm>
     <developers>
         <developer>
@@ -35,11 +35,14 @@
             <name>Rafael Winterhalter</name>
             <email>rafael.wth@gmail.com</email>
         </developer>
+        <developer>
+            <id>ouertani</id>
+            <name>Slim Ouertani</name>
+            <email>ouertani@gmail.com</email>
+        </developer>
     </developers>
     <build>
         <plugins>
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-plugin-plugin</artifactId>
@@ -60,7 +63,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.2.0</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -72,7 +75,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -81,7 +84,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-invoker-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.2.1</version>
                 <configuration>
                     <debug>false</debug>
                     <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
@@ -109,7 +112,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.2.4</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -137,12 +140,12 @@
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
-            <version>3.6.0</version>
+            <version>3.6.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-core</artifactId>
-            <version>3.6.0</version>
+            <version>3.6.3</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -174,12 +177,21 @@
             <id>gradle</id>
             <url>https://repo.gradle.org/gradle/libs-releases-local/</url>
         </repository>
+
     </repositories>
 
     <distributionManagement>
         <repository>
-            <id>bintray</id>
-            <url>https://api.bintray.com/maven/raphw/maven/gradle-maven-plugin</url>
+            <id>github</id>
+            <name>ouertani</name>
+            <url>https://maven.pkg.github.com/ouertani/gradle-maven-plugin</url>
         </repository>
     </distributionManagement>
+
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>internal</id>-->
+<!--            <url>file://${project.build.directory}/mvn-repo</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
 </project>
